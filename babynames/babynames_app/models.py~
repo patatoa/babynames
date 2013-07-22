@@ -31,7 +31,7 @@ class FirstName (models.Model):
 	firstName = models.CharField(max_length = 20)
 	country = models.ForeignKey('Country')
 	rank = models.IntegerField(default = 0)
-	gender = models.ForeignKey('Gender')
+	gender = models.Foreignkey('Gender')
 	meaning = models.CharField(max_length = 100)
 
 	def _unicode_(self):
