@@ -6,7 +6,6 @@ from django.db import models
 
 class LastName(models.Model):
 	lastName = models.CharField(max_length = 20)
-
 	def _unicode_(self):
 		return self.lastName
 
@@ -14,17 +13,14 @@ class LastName(models.Model):
 class Gender(models.Model):
 	genderAccronym = models.CharField(max_length = 1)
 	genderLabel = models.CharField(max_length = 13)
-
 	def _unicode_(self):
 		return self.genderAccronym
 
 
 class Country(models.Model):
 	countryName = models.CharField(max_length = 35)
-
 	def _unicode_(self):
 		return self.countryName
-
 
 
 class FirstName (models.Model):
@@ -33,14 +29,12 @@ class FirstName (models.Model):
 	rank = models.IntegerField(default = 0)
 	gender = models.ForeignKey('Gender')
 	meaning = models.CharField(max_length = 100)
-
 	def _unicode_(self):
 		return self.firstName
 
 
 class FullName(models.Model):
-	first = models.ForeignKey('FirstName')
-	last = models.ForeignKey('LastName')
-
+	first = models.ManyToManyField(FirstName)
+	last = models.ManyToManyField(LastName)
 	def _unicode_(self):
 		return self.first + ' ' + self.last
