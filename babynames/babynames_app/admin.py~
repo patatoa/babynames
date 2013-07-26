@@ -2,20 +2,24 @@ from django.contrib import admin
 from babynames_app.models import FirstName, LastName, FullName, Country, Gender
 
 
-class Choice(admin.ModelAdmin):
-	exclude = ('rank',)
+class FirstNameAdmin(admin.ModelAdmin):
+	exclude = ('rank',
+	list_display = ('firstName','gender',)
+
+	
+#class FirstNameAdmin(admin.TabularInline):
+#	model = FirstName
+#	exclude = ('rank',)
+#	list_display = ('firstName','gender',)
+#
+#
+#class FullNameAdmin(admin.ModelAdmin):
+#	inlines = [
+#			FirstNameAdmin,
+#			]
 
 
-class FirstNameInlines(admin.StackedInline):
-	model= Choice
-	extra = 50
-
-
-class FullNameAdmin(admin.ModelAdmin):
-	inlines = [FirstNameInlines]
-
-
-admin.site.register(FirstName, Choice)
-admin.site.register(FullName, FullNameAdmin)
+admin.site.register(FirstName, FirstNameAdmin)
+admin.site.register(FullName)#, FullNameAdmin)
 admin.site.register(Country)
 admin.site.register(Gender)
