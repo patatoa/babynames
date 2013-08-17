@@ -7,20 +7,28 @@ class LastNameAdmin(admin.TabularInline):
     model = LastName
 
 
-class FirstNameAdmin(admin.TabularInline):
-    model = FirstName
+class FirstNameInlineAdmin(admin.TabularInline):
+    model = FullName.first
 
 
-class NameAdmin(admin.TabularInline):
+class NameInfoInline(admin.TabularInline):
     model = NameInfo
+
+
+class FullNameInline(admin.TabularInline):
+    model = FullName
+
+
+class FirstNameAdmin(admin.ModelAdmin):
     inlines = [
-        FirstNameAdmin,
+        FullNameInline,
+        NameInfoInline,
     ]
 
 
 class FullNameAdmin(admin.ModelAdmin):
     inlines = [
-        NameAdmin,
+        FirstNameAdmin,
         LastNameAdmin,
     ]
     exclude = ("rank",)
@@ -30,7 +38,7 @@ class FullNameAdmin(admin.ModelAdmin):
 #			]
 
 
-admin.site.register(FirstName)
-admin.site.register(FullName, FullNameAdmin)
+admin.site.register(FirstName, FirstNameAdmin)
+admin.site.register(FullName)
 admin.site.register(Country)
 admin.site.register(Gender)

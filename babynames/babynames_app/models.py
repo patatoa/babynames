@@ -10,7 +10,8 @@ class LastName(models.Model):
 
 class FirstName(models.Model):
     name = models.CharField(max_length=25)
-    nicknames = models.ManyToManyField('FirstName', symmetrical=False)
+    nicknames = models.ManyToManyField('FirstName', symmetrical=False,
+                                       null=True)
 
     def __unicode__(self):
         return self.name
@@ -57,4 +58,4 @@ class FullName(models.Model):
     cons = models.CharField(max_length=100, null=True)
 
     def __unicode__(self):
-        return '%s %s' % (self.first.firstName, self.last.lastName)
+        return '%s %s' % (self.first.name, self.last.lastName)
