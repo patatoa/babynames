@@ -1,0 +1,25 @@
+body{
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    text-align: center;
+}
+h1{
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: x-large;
+}
+table{
+    text-align: left;
+    width: 95%;
+    border: 1px ridge silver;
+    margin: 0 auto;
+}
+td{
+    width: 30%;
+}
+.boy{
+    background-color: #43D0F7;
+    color: white;
+}
+.girl{
+    background-color: #FAD2F0;
+    color: black;
+}

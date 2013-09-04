@@ -51,11 +51,11 @@ class NameInfo (models.Model):
 
 
 class FullName(models.Model):
-    first = models.ForeignKey(FirstName)
+    first = models.ForeignKey(NameInfo)
     last = models.ForeignKey(LastName)
     rank = models.IntegerField(default=0)
     pros = models.CharField(max_length=100, null=True)
     cons = models.CharField(max_length=100, null=True)
 
     def __unicode__(self):
-        return '%s %s' % (self.first.name, self.last.lastName)
+        return '%s %s' % (self.first.firstName, self.last.lastName)

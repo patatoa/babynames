@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Thomas Baby Naming Project</title>
+    <link rel="stylesheet" type="text/css" href="{% static "styles/default.css" %}">
+</head>
+<body>
+    <h1>Name that Baby</h1>
+    <table>
+        {% for name in names %}
+        <tr class="{{ name.first.gender.genderLabel }}">
+            <td>{{ name }}</td>
+            <td>{{ name.pros }}</td>
+            <td>{{ name.cons }}</td>
+            <td>{{ name.first.gender }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
