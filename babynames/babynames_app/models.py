@@ -10,7 +10,7 @@ class LastName(models.Model):
 
 class FirstName(models.Model):
     name = models.CharField(max_length=25)
-    nicknames = models.ManyToManyField('FirstName', symmetrical=False,
+    nicknames = models.ManyToManyField('self', symmetrical=False,
                                        null=True)
 
     def __unicode__(self):

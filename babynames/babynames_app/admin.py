@@ -28,7 +28,7 @@ class FirstNameAdmin(admin.ModelAdmin):
 
 class FullNameAdmin(admin.ModelAdmin):
     inlines = [
-        FirstNameAdmin,
+        NameInfoInline,
         LastNameAdmin,
     ]
     exclude = ("rank",)
