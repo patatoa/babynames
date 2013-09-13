@@ -15,5 +15,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'babynames_app.views.main', name='main')
+    url(r'^$', 'babynames_app.views.main', name='main'),
+    url(r'^like/(?P<name_id>\d+)/$', 'babynames_app.views.like'),
+    url(r'^vote_down/(?P<name_id>\d+)/$', 'babynames_app.views.vote_down')
 )
