@@ -47,7 +47,7 @@ class NameInfo (models.Model):
     meaning = models.CharField(max_length=100, null=True)
 
     def __unicode__(self):
-        return "%s" % (self.firstName)
+        return "%s" % self.firstName
 
 
 class FullName(models.Model):
